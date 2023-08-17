@@ -17,7 +17,6 @@ volatile unsigned long lastPulseTime = 0;
 volatile unsigned long lastRPMUpdateTime = 0;
 unsigned long mismatchStartTime = 0;
 unsigned long noRPMReportedStartTime = 0;
-volatile float actualRPM = 0;
 
 void setup() {
   pinMode(stepPin, OUTPUT);
@@ -29,6 +28,7 @@ void setup() {
   digitalWrite(rstPin, HIGH);
   digitalWrite(slpPin, HIGH);
   Serial.begin(115200);
+  delay(2000);
   attachInterrupt(digitalPinToInterrupt(hallEffectPin), measureRPM, RISING);
   Serial.println("Setup complete.");
 }
@@ -41,25 +41,35 @@ void loop() {
     Serial.println("Break Beam Sensor Activated, pausing...");
     delay(1000);
   } else {
-    spinMotor();
-    checkRPM();
-  }
-}
+    Serial.println("Spinning motor...");
 
-void spinMotor() {
-  digitalWrite(dirPin, LOW);
-  for (int x = 0; x < stepsPerRevolution; x++) {
-    if (digitalRead(breakBeamPin) == HIGH) {
-      lastRPMUpdateTime = millis(); // Reset last RPM update time
-      noRPMReportedStartTime = 0; // Reset the no RPM reported counter
-      Serial.println("Break Beam Sensor Activated, breaking loop...");
-      break;
+    digitalWrite(dirPin, LOW);
+    for (int x = 0; x < stepsPerRevolution; x++) {
+      if (digitalRead(breakBeamPin) == HIGH) {
+        lastRPMUpdateTime = millis(); // Reset last RPM update time
+        noRPMReportedStartTime = 0; // Reset the no RPM reported counter
+        Serial.println("Break Beam Sensor Activated, breaking loop...");
+        break;
+      }
+
+      if (lastRPMUpdateTime > 0 && millis() - lastRPMUpdateTime > rpmReportingThreshold * 1000) {
+        if (noRPMReportedStartTime == 0) {
+          noRPMReportedStartTime = millis();
+          Serial.println("No RPM reported, starting timer...");
+        } else if (millis() - noRPMReportedStartTime >= rpmMismatchThreshold * 1000) {
+          Serial.println("No RPM reported within threshold, stopping motor...");
+          stopStepperMotor();
+          digitalWrite(rstPin, LOW);
+          digitalWrite(slpPin, LOW);
+          while (true);
+        }
+      }
+
+      digitalWrite(stepPin, HIGH);
+      delayMicroseconds(microsecondDelay);
+      digitalWrite(stepPin, LOW);
+      delayMicroseconds(microsecondDelay);
     }
-
-    digitalWrite(stepPin, HIGH);
-    delayMicroseconds(microsecondDelay);
-    digitalWrite(stepPin, LOW);
-    delayMicroseconds(microsecondDelay);
   }
 }
 
@@ -74,40 +84,23 @@ void measureRPM() {
   lastPulseTime = currentPulseTime;
 
   if (pulseDuration > 0) {
-    actualRPM = 60.0 / ((pulseDuration * 18) / 1000000.0);
+    float actualRPM = 60.0 / ((pulseDuration * 18) / 1000000.0);
+    Serial.print("Actual RPM: ");
+    Serial.println(actualRPM);
     lastRPMUpdateTime = millis();
     noRPMReportedStartTime = 0; // Reset the no RPM reported counter if an RPM is reported
-  }
-}
 
-void checkRPM() {
-  Serial.print("Actual RPM: ");
-  Serial.println(actualRPM);
-  
-  if (abs(actualRPM - desiredRPM) > desiredRPM * 0.1) {
-    if (mismatchStartTime == 0) {
-      mismatchStartTime = millis();
-      Serial.println("RPM mismatch detected, starting timer...");
-    } else if (millis() - mismatchStartTime >= rpmMismatchThreshold * 1000) {
-      stopStepperMotor();
-      Serial.println("RPM mismatch threshold reached, stopping motor...");
-      while (true);
-    }
-  } else {
-    mismatchStartTime = 0;
-    Serial.println("RPM is within range, resetting timer.");
-  }
-  
-  if (lastRPMUpdateTime > 0 && millis() - lastRPMUpdateTime > rpmReportingThreshold * 1000) {
-    if (noRPMReportedStartTime == 0) {
-      noRPMReportedStartTime = millis();
-      Serial.println("No RPM reported, starting timer...");
-    } else if (millis() - noRPMReportedStartTime >= rpmMismatchThreshold * 1000) {
-      Serial.println("No RPM reported within threshold, stopping motor...");
-      stopStepperMotor();
-      digitalWrite(rstPin, LOW);
-      digitalWrite(slpPin, LOW);
-      while (true);
+    if (abs(actualRPM - desiredRPM) > desiredRPM * 0.1) {
+      if (mismatchStartTime == 0) {
+        mismatchStartTime = millis();
+        Serial.println("RPM mismatch detected, starting timer...");
+      } else if (millis() - mismatchStartTime >= rpmMismatchThreshold * 1000) {
+        stopStepperMotor();
+        while (true);
+      }
+    } else {
+      mismatchStartTime = 0;
+      Serial.println("RPM is within range, resetting timer.");
     }
   }
 }
