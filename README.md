@@ -13,6 +13,7 @@ The main benefits to Revision B are:
 -	Small footprint with no external speed or motor controller. Everything is housed on the unit.
 -	Spring loaded nose guide for quick and easy adjustment.
 -	A revised mount that better contours to the shape of the Dillon XL Case feeder.
+-	Feeder Stop Switch with optical sensors to eliminate the fine tuning of a mechanical switch.
 -	Optional hardware free bullet “kicker” to remove bullets that are not fully seated in the collator.
 
 In the PCB folder is a Zip file, which you can upload directly to JLCPCB.com and they will make you five of the boards for only a few dollars.
