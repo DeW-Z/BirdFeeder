@@ -17,3 +17,6 @@ The main benefits to Revision B are:
 -	Optional hardware free bullet “kicker” to remove bullets that are not fully seated in the collator.
 
 In the PCB folder is a Zip file, which you can upload directly to JLCPCB.com and they will make you five of the boards for only a few dollars.
+
+3MF and STLs can be found at: 
+https://makerworld.com/en/models/1252671-bullet-feeder-reloading-assistant#profileId-1697707
