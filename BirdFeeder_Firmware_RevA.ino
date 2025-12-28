@@ -41,7 +41,7 @@ void setup() {
 
   pinMode(statusPin, OUTPUT);
   pinMode(stallPin, INPUT);
-  pinMode(breakBeamPin, INPUT);
+  pinMode(breakBeamPin, INPUT_PULLUP);
   pinMode(accPin, INPUT);
   pinMode(statusPin, OUTPUT);
   pinMode(EN_PIN, OUTPUT);
@@ -66,76 +66,59 @@ void setup() {
 }
 
 void loop() {
+  digitalWrite(statusPin, LOW); 
   digitalWrite(EN_PIN, LOW);
-  driver.SGTHRS(STALL_VALUE);
-  delay(500);
+  // int statusPinState = digitalRead(statusPin);
+  // Serial.print("Status Pin (4) is currently: ");
+  // Serial.println(statusPinState == HIGH ? "Error" : "System Good");
+
+  int breakBeamState = digitalRead(breakBeamPin);
+
+  static unsigned long lastPrint = 0;
+  if (millis() - lastPrint > 500) {
+    // Serial.print("Sensor Pin (2) is currently: ");
+    // Serial.println(breakBeamState == HIGH ? "Sensor not blocked" : "Sensor Blocked");
+    lastPrint = millis();
+  }
+
+  if (breakBeamState == LOW) { 
+    handleBreakBeam();
+    return; 
+  }
 
   int potValue = analogRead(speedAdj);
   int mappedValue = map(potValue, 0, 1023, 0, -100);
   #if REVERSE_DIRECTION
-   mappedValue = -mappedValue;
+    mappedValue = -mappedValue;
   #endif
   driver.VACTUAL(mappedValue);
-
-  int breakBeamState = digitalRead(breakBeamPin);
-  int accPinState = digitalRead(accPin);
-  int stallPinState = digitalRead(stallPin);
-  static unsigned long stallDetectedTime = 0;
-
-  if (breakBeamState == LOW) {
-    handleBreakBeam();
-  } else if (stallPinState == HIGH) {
-    //handleStall();
-    stallDetectedTime = millis();
-    driver.VACTUAL(mappedValue);
-  } else if (millis() - stallDetectedTime > RESET_DELAY) {
-    driver.VACTUAL(mappedValue);
-  }
-  //Serial.println(getDiagnosticInfo());
-#if ENABLE_STALL_HANDLING
-  if (driver.SG_RESULT() < SG_THRESHOLD) {
-    if (millis() - lastCheckTime <= TIME_PERIOD) {
-      stallCount++;
-    } else {
-      stallCount = 1;
-      lastCheckTime = millis();
-    }
-  } 
-
-  if (stallCount >= MAX_COUNT) {
-    handleStall();
-    stallCount = 0;
-    lastCheckTime = millis();
-  }
-#endif
 }
 
 void handleBreakBeam() {
   driver.VACTUAL(0);
-  Serial.print("Motor stopped due to break beam sensor.   ");
-  flashStatusPin(1, 250);
+  Serial.println("Motor stopped: BEAM BROKEN");
+  flashStatusPin(1, 250); 
 }
 
 void handleStall() {
   driver.VACTUAL(0);
-  driver.SGTHRS(0);
-  Serial.print("Jam Detected.   ");
-  flashStatusPin(50, 50);
+  Serial.println("Motor stopped: JAM DETECTED");
+  flashStatusPin(10, 50);
   digitalWrite(EN_PIN, HIGH);
-  delay(50);
+  delay(1000);
   digitalWrite(EN_PIN, LOW);
-  
 }
 
 void flashStatusPin(int times, int delayTime) {
   for (int i = 0; i < times; i++) {
-    digitalWrite(statusPin, HIGH);
-    delay(delayTime);
     digitalWrite(statusPin, LOW);
+    delay(delayTime);
+    digitalWrite(statusPin, HIGH);
     delay(delayTime);
   }
 }
 
+//Serial.println(getDiagnosticInfo());
 String getDiagnosticInfo() {
   int breakBeamState = digitalRead(breakBeamPin);
   String info = "Diag Status: ";
