@@ -83,6 +83,10 @@
   That said, the original design is still great and will continue to be available for people who enjoy building and experimenting with electronics themselves. I’ll continue ordering the original PCBs, but I will no longer be building complete assembled versions of that design.
 </p>
 
+<p>
+  Normal operation does not require internet access, a mobile app, an account, or anything of the sort. This will function 100% offline.
+</p>
+
 <hr>
 
 <h2 id="table-of-contents">Table of Contents</h2>
@@ -1143,14 +1147,4 @@
   <li>A description of what the feeder was doing when the issue happened.</li>
 </ul>
 
-<hr>
 
-<h2 id="private-firmware-note">Private Firmware Note</h2>
-
-<p>
-  The firmware source code is not published with this repository. This is intentional. The goal of this README is to document the product honestly and clearly without exposing the internal implementation. The device behavior, configuration options, diagnostics, update process, and troubleshooting steps are documented so installers and users can understand how the controller works and what information is available for support.
-</p>
-
-<p>
-  Normal operation does not require internet access, a mobile app, a cloud account, or access to the firmware source code.
-</p>
