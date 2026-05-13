@@ -91,6 +91,7 @@
   <li><a href="#what-this-controller-does">What This Controller Does</a></li>
   <li><a href="#main-features">Main Features</a></li>
   <li><a href="#important-safety-notes">Important Safety Notes</a></li>
+  <li><a href="#quick-start">Quick Start Guide</a></li>
   <li><a href="#hardware-overview">Hardware Overview</a></li>
   <li><a href="#stepper-motor-phase-swap-header">Stepper Motor Phase Swap Header</a></li>
   <li><a href="#status-leds-and-indicators">Status LEDs and Indicators</a></li>
@@ -157,6 +158,46 @@
   <li>If the motor moves unexpectedly, stop the motor from the web interface or remove power.</li>
   <li>If a jam repeatedly occurs, inspect the feeder mechanism before increasing trip thresholds.</li>
 </ul>
+
+<hr>
+
+<hr>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<p>
+  Just want to get the feeder running? Start here.
+</p>
+
+<ol>
+  <li>Connect the stepper motor, BreakBeam sensor and speed adjuster.</li>
+  <li>Connect a USB Type-C power supply.</li>
+  <li>Wait a few seconds for the controller to boot.</li>
+  <li>On your phone or computer, connect to the WiFi network:<br>
+    <strong>BirdFeeder Setup</strong>
+  </li>
+  <li>Password:<br>
+    <strong>12345678</strong>
+  </li>
+  <li>Open a browser and go to:<br>
+    <strong>http://192.168.4.1</strong>
+  </li>
+  <li>Use the setup page to:
+    <ul>
+      <li>Connect the controller to your home WiFi, or</li>
+      <li>Continue using standalone mode</li>
+    </ul>
+  </li>
+  <li>Once connected to WiFi, open:<br>
+    <strong>http://birdfeeder.local</strong>
+  </li>
+</ol>
+
+<p>
+  If the motor vibrates or buzzes instead of spinning normally, see the
+  <a href="#stepper-motor-phase-swap-header">Stepper Motor Phase Swap Header</a>
+  section below.
+</p>
 
 <hr>
 
