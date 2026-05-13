@@ -39,39 +39,26 @@
 <hr>
 
 <p>
-  The BirdFeeder Smart Controller is the next generation of stepper motor controller for the BirdFeeder Bullet Feeder. The Smart Controller works with any USB Type-C power supply and is capable of using up to 20 volts with compatible power supplies. The standard BreakBeam sensor, Speed Adjuster and Stepper Motor connectors are still in place, but this version also includes additional inputs and outputs for future development and add-ons. The last major upgrade to this controller is the ability to connect to Wi-Fi for increased ease of use.
+  The BirdFeeder Smart Controller is the next generation of stepper motor controller for the BirdFeeder Bullet Feeder. It works with standard USB Type-C power supplies and can utilize up to 20 volts with compatible PD power supplies. The standard BreakBeam sensor, Speed Adjuster and Stepper Motor connectors are still here, but this version also adds additional inputs and outputs for future development and add-ons.
 </p>
 
 <p>
-  Now, I get it. Great, another Wi-Fi device. Honestly, I had the same hesitation when I started working on this version. Over the last couple years, I’ve spent a pretty good amount of time helping people get the original PCB up and running, and the biggest hurdle has almost always been setting up Arduino IDE, drivers and libraries. This new controller can be configured, controlled and diagnosed completely through the built-in web portal.
+  The biggest change, though, is Wi-Fi support.
 </p>
 
 <p>
-  Can I make it myself? It isn’t open-source <em>yet</em>, but it will be in the future. That being said, this design uses mostly 0402 SMD components and other very small parts. Trying to hand solder these reliably is going to be rough unless you already have experience with small SMD work and proper equipment.
+  Now, I get it. Great, another Wi-Fi device. Honestly, I had the same hesitation when I started working on this version. Over the last couple years, I’ve spent a pretty good amount of time helping people get the original PCB up and running, and the biggest hurdle was almost always setting up Arduino IDE, drivers, libraries and firmware updates.
 </p>
 
 <p>
-  Once available, you will be able to order these through a service like JLCPCB’s PCBA service, but the minimum order quantity is typically 5 assembled boards.
+  The goal with the Smart Controller wasn’t to overcomplicate the feeder, it was actually the opposite. I wanted to make setup, troubleshooting and updates easier for people who just want to get the feeder running without needing development tools.
 </p>
 
 <p>
-  Ultimately, switching to this design allows me to reduce cost, keep stock on hand more reliably and get people up and running much easier, for the same or even slightly less than the cost of the original board. That said, the original design is still great and will continue to be available for people who enjoy building and experimenting with electronics themselves. I’ll continue ordering the original PCBs, but I will no longer be building complete assembled versions of that design.
-</p>
-
-<hr>
-
-<h2 id="why-this-version-exists">Why This Version Exists</h2>
-
-<p>
-  The original BirdFeeder controller worked well, but getting everything configured could sometimes be frustrating for people who weren’t already familiar with Arduino-based projects. Between drivers, libraries, COM ports and firmware uploads, there were a lot of places where setup could go sideways.
-</p>
-
-<p>
-  The Smart Controller was designed to simplify that process as much as possible while also adding features that were difficult or impossible on the original board.
+  This version can be configured, controlled, updated and diagnosed completely through the built-in web portal. It also adds features that were difficult or impossible on the original board, including:
 </p>
 
 <ul>
-  <li>No Arduino IDE setup required for normal use.</li>
   <li>Built-in WiFi setup and browser-based controls.</li>
   <li>OTA firmware updates through the web page.</li>
   <li>Integrated diagnostics and logging.</li>
@@ -81,7 +68,19 @@
 </ul>
 
 <p>
-  The goal wasn’t to overcomplicate the feeder. It was actually the opposite — make it easier to get running, easier to support and easier to troubleshoot without needing development tools.
+  Can I make it myself? It isn’t open-source <em>yet</em>, but it will be in the future. That being said, this design uses mostly 0402 SMD components and other very small parts. Trying to hand solder these reliably is probably going to be rough unless you already have experience with small SMD work and proper equipment.
+</p>
+
+<p>
+  Once available, you’ll be able to order these through a service like JLCPCB’s PCBA service, although the minimum order quantity is typically 5 assembled boards.
+</p>
+
+<p>
+  Ultimately, switching to this design allows me to reduce cost, keep stock on hand more reliably and get people up and running much easier, for roughly the same price, or even slightly less than the original board.
+</p>
+
+<p>
+  That said, the original design is still great and will continue to be available for people who enjoy building and experimenting with electronics themselves. I’ll continue ordering the original PCBs, but I will no longer be building complete assembled versions of that design.
 </p>
 
 <hr>
@@ -210,14 +209,6 @@
 
 <hr>
 
-<h2 id="status-leds-and-indicators">Status LEDs and Indicators</h2>
-
-<p>
-  The board has three main status LED outputs. The web interface also shows matching status cards on the control page.
-</p>
-
-<hr>
-
 <h2 id="stepper-motor-phase-swap-header">Stepper Motor Phase Swap Header (3x2 Header)</h2>
 
 <p>
@@ -253,6 +244,11 @@
 
 <hr>
 
+<h2 id="status-leds-and-indicators">Status LEDs and Indicators</h2>
+
+<p>
+  The board has three main status LED outputs. The web interface also shows matching status cards on the control page.
+</p>
 
 <table>
   <thead>
