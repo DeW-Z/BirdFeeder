@@ -1,5 +1,9 @@
 <h1>BirdFeeder Controller PCB</h1>
 
+<p align="center">
+  <img src="assets/ControllerMotor.jpg" width="49%">
+</p>
+
 <hr>
 
 <blockquote>
@@ -119,6 +123,10 @@
 
 <hr>
 
+<p align="center">
+  <img src="assets/WhatisWhat.png" width="75%">
+</p>
+
 <h2 id="what-this-controller-does">What This Controller Does</h2>
 
 <p>
@@ -130,6 +138,10 @@
 </p>
 
 <hr>
+
+<p align="center">
+  <img src="assets/UI%20Demo.png" width="75%">
+</p>
 
 <h2 id="main-features">Main Features</h2>
 
