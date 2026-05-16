@@ -127,17 +127,7 @@
   <img src="assets/WhatisWhat.png" width="75%">
 </p>
 
-<h2 id="what-this-controller-does">What This Controller Does</h2>
 
-<p>
-  The controller runs a stepper motor that drives the feeder mechanism. It can be operated from a browser-based control page, a physical mode button, and a physical speed knob. The board creates its own setup WiFi network, can connect to a home WiFi network, and serves its control page directly from the device.
-</p>
-
-<p>
-  The controller is intended to be simple for normal use, but still provides advanced diagnostics and tuning options for setup, testing, and support.
-</p>
-
-<hr>
 
 <p align="center">
   <img src="assets/UI%20Demo.png" width="75%">
