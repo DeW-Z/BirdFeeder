@@ -1045,47 +1045,6 @@
   <li>StallGuard sensitivity and threshold values.</li>
 </ul>
 
-<h3>Primary GPIO Map</h3>
-
-<p>
-  GPIO numbers are listed for technical reference. These are ESP32 GPIO numbers, not physical connector pin numbers.
-</p>
-
-<table>
-  <thead>
-    <tr>
-      <th align="left">Function</th>
-      <th align="left">GPIO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Speed Control Potentiometer</td><td>7</td></tr>
-    <tr><td>TMC RX</td><td>15</td></tr>
-    <tr><td>TMC TX</td><td>16</td></tr>
-    <tr><td>Direction</td><td>17</td></tr>
-    <tr><td>TMC DIAG</td><td>18</td></tr>
-    <tr><td>I2C SDA</td><td>8</td></tr>
-    <tr><td>I2C SCL</td><td>9</td></tr>
-    <tr><td>TMC Enable</td><td>10</td></tr>
-    <tr><td>Status LED 1</td><td>11</td></tr>
-    <tr><td>Status LED 2</td><td>12</td></tr>
-    <tr><td>Status LED 3</td><td>13</td></tr>
-    <tr><td>STEP</td><td>14</td></tr>
-    <tr><td>Index Input</td><td>21</td></tr>
-    <tr><td>Boot Button</td><td>0</td></tr>
-    <tr><td>Break-Beam Input</td><td>39</td></tr>
-    <tr><td>Spare 3.3V Sensor Input</td><td>40</td></tr>
-    <tr><td>5V Sensor Input 1</td><td>41</td></tr>
-    <tr><td>5V Sensor Input 2</td><td>42</td></tr>
-    <tr><td>TMC MS1</td><td>2</td></tr>
-    <tr><td>TMC MS2</td><td>1</td></tr>
-    <tr><td>Mode Button</td><td>5</td></tr>
-    <tr><td>CH224K Power Good</td><td>3</td></tr>
-    <tr><td>USB D-</td><td>19</td></tr>
-    <tr><td>USB D+</td><td>20</td></tr>
-  </tbody>
-</table>
-
 <h3>Useful Local API Paths</h3>
 
 <p>
@@ -1122,10 +1081,6 @@
     </tr>
   </tbody>
 </table>
-
-<p>
-  These endpoints are intended for local device operation and support. They should not be exposed directly to the public internet.
-</p>
 
 <hr>
 
