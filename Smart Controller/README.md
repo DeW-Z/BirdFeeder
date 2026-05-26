@@ -100,6 +100,7 @@
   <li><a href="#main-features">Main Features</a></li>
   <li><a href="#important-safety-notes">Important Safety Notes</a></li>
   <li><a href="#quick-start">Quick Start Guide</a></li>
+  <li><a href="#Smart-Controller-Mount-Installation">Smart Controller Mount Installation</a></li>
   <li><a href="#hardware-overview">Hardware Overview</a></li>
   <li><a href="#stepper-motor-phase-swap-header">Stepper Motor Phase Swap Header</a></li>
   <li><a href="#status-leds-and-indicators">Status LEDs and Indicators</a></li>
@@ -203,6 +204,14 @@
   If the motor vibrates or buzzes instead of spinning normally, see the
   <a href="#stepper-motor-phase-swap-header">Stepper Motor Phase Swap Header</a>
   section below.
+</p>
+
+<hr>
+<h2 id="Smart-Controller-Mount-Installation">Smart Controller Mount Installation
+</h2>
+
+<p align="center">
+  <img src="assets/PCBMountInstructions.png" width="49%">
 </p>
 
 <hr>
