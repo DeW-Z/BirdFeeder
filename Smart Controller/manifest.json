@@ -1,0 +1,6 @@
+{
+  "version": "1.0.17",
+  "date": "2026-06-03",
+  "notes": "Improved StallGuard tuning and OTA update support.",
+  "binUrl": "https://raw.githubusercontent.com/DeW-Z/BirdFeeder/main/Smart%20Controller/firmware.bin"
+}
