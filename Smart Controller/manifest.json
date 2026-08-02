@@ -1,7 +1,7 @@
 {
-  "version": "1.0.23",
-  "date": "2026-07-30",
-  "notes": "Adjustable RMS current up to 2000mA (password-gated above 1400mA) with heat warnings, TMC2209 overtemperature auto-cutoff, smoothed StallGuard jam detection (fewer false trips), relocated StallGuard enable/disable, OTA checksum verification, and a cleaned-up diagnostics view.",
-  "binUrl": "https://raw.githubusercontent.com/DeW-Z/BirdFeeder/main/Smart%20Controller/BirdFeeder_SmartController_FRM1_0_23.ino.bin",
-  "sha256": "7AECA6C0E6EB6A0D0CDCFCAFAF411F0DC1D62B2E8FDA044E70C1C9B8C5F7A18D"
+  "version": "1.0.24",
+  "date": "2026-08-01",
+  "notes": "Gearbox option, Updated OTA updates.",
+  "binUrl": "https://raw.githubusercontent.com/DeW-Z/BirdFeeder/main/Smart%20Controller/BirdFeeder_SmartController_FRM1_0_24.ino.bin",
+  "sha256": "A8FB3BFCDB573E1FE5988056C4E90DAFB9F266A96FF2D10DE11F23AA374FC201x"
 }
