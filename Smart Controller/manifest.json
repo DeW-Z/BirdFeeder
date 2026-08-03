@@ -1,7 +1,7 @@
 {
   "version": "1.0.25",
   "date": "2026-08-02",
-  "notes": "Settings UI overhaul: unified design tokens across Control and Settings, a Simple/Advanced view toggle that hides raw motor/StallGuard/diagnostic fields by default, a plain-language Jam Sensitivity (Low/Medium/High) preset.",
+  "notes": "Settings UI overhaul: unified design tokens across Control and Settings, a Simple/Advanced view toggle that hides raw motor/StallGuard/diagnostic fields by default, a plain-language Jam Sensitivity (Low/Medium/High) presets.",
   "binUrl": "https://raw.githubusercontent.com/DeW-Z/BirdFeeder/main/Smart%20Controller/BirdFeeder_SmartController_FRM1_0_25.ino.bin",
   "sha256": "05D6DE338D3C6E046D28EC8AE2A4A9DD41285E25715B3C59EF06DBA275A0D5F7"
 }
