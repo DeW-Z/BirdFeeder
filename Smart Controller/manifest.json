@@ -1,7 +1,7 @@
 {
-  "version": "1.0.24",
-  "date": "2026-08-01",
-  "notes": "Gearbox option, Updated OTA updates.",
-  "binUrl": "https://raw.githubusercontent.com/DeW-Z/BirdFeeder/main/Smart%20Controller/BirdFeeder_SmartController_FRM1_0_24.ino.bin",
-  "sha256": "A8FB3BFCDB573E1FE5988056C4E90DAFB9F266A96FF2D10DE11F23AA374FC201"
+  "version": "1.0.25",
+  "date": "2026-08-02",
+  "notes": "Settings UI overhaul: unified design tokens across Control and Settings, a Simple/Advanced view toggle that hides raw motor/StallGuard/diagnostic fields by default, a plain-language Jam Sensitivity (Low/Medium/High) preset, and less alarming button colors reserved for genuinely destructive actions.",
+  "binUrl": "https://raw.githubusercontent.com/DeW-Z/BirdFeeder/main/Smart%20Controller/BirdFeeder_SmartController_FRM1_0_25.ino.bin",
+  "sha256": "REPLACE_WITH_SHA256_OF_COMPILED_BIN_BEFORE_PUBLISHING"
 }
